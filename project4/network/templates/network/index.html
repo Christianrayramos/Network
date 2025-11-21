@@ -1,0 +1,55 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h1 class="m-3" id="viewname">All Posts</h1>
+    <div class="button-wrap"><button id="follow_btn"></button></div>
+
+    <div id="parent">
+        <div class="child">
+            <span id="flrText"><i class="bi bi-people"></i> Followers: <span id="followers">0</span></span>
+            <span id="flrText"><i class="bi bi-person-lines-fill"></i> Followings: <span id="following">0</span></span>
+        </div>
+    </div>
+    
+    
+    {% if user.is_authenticated %}
+        <div id="create_post" class="card m-3 mb-1" >
+            <form id="post-form">
+                <div class="card-body"> 
+                    <h5 class="card-title"><strong> New Post </strong></h5>
+                    <textarea id="form-content" class="card-text container-fluid "></textarea>
+                    <input type="submit" class="btn btn-sm btn-primary" value="POST"/>
+                </div>
+            </form>
+        </div>
+    {% endif %}
+
+    <div id="post">
+    </div>
+
+
+    <div id="edit"> </div>
+
+    <div id="pagination"></div>
+    
+    
+
+    
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/index.js' %}"></script>
+{% endblock %}
+
+
+ <!--<div id="post" class="card m-3">
+    <div class="card-body">
+        <strong><h5> USERNAME </h5></strong>
+        <a href="#"> Edit</a>
+        <div class="card-text"> POST CONTENT </div>
+        <p style="color: gray; font-size: 0.9rem;"> April 16, 2025, 3:15pm<br>
+        <a href="#">Like Button </a>
+        </p>
+    </div>
+-->
